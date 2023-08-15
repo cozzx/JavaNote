@@ -24,13 +24,13 @@ public class IndexServlet extends ViewBaseServlet {
         Integer pageNo = 1;
 
         String oper = request.getParameter("oper");
-        //如果oper!=null 说明 通过表单的查询按钮点击过来的
-        //如果oper是空的，说明 不是通过表单的查询按钮点击过来的
+        // 如果oper!=null 说明 通过表单的查询按钮点击过来的
+        // 如果oper是空的，说明 不是通过表单的查询按钮点击过来的
 
-        String keyword = null;
+        String keyword;
         if ("search".equals(oper)) {
-            //说明是点击表单查询发送过来的请求
-            //此时，pageNo应该还原为1 ， keyword应该从请求参数中获取
+            // 说明是点击表单查询发送过来的请求
+            // 此时，pageNo应该还原为1 ， keyword应该从请求参数中获取
             pageNo = 1;
             keyword = request.getParameter("keyword");
             if (keyword == null) {
@@ -38,8 +38,8 @@ public class IndexServlet extends ViewBaseServlet {
             }
             session.setAttribute("keyword", keyword);
         } else {
-            //说明此处不是点击表单查询发送过来的请求（比如点击下面的上一页下一页或者直接在地址栏输入网址）
-            //此时keyword应该从session作用域获取
+            // 说明此处不是点击表单查询发送过来的请求（比如点击下面的上一页下一页或者直接在地址栏输入网址）
+            // 此时keyword应该从session作用域获取
             String pageNoStr = request.getParameter("pageNo");
             if (pageNoStr != null && !"".equals(pageNoStr)) {
                 pageNo = Integer.parseInt(pageNoStr);
@@ -59,13 +59,13 @@ public class IndexServlet extends ViewBaseServlet {
 
         session.setAttribute("fruitList", fruitList);
 
-        //总记录条数
+        // 总记录条数
         int fruitCount = fruitDAO.getFruitCount(keyword);
-        //总页数
+        // 总页数
         int pageCount = (fruitCount + 5 - 1) / 5;
         session.setAttribute("pageCount", pageCount);
         // 视图名称 {view-prefix}index{view-suffix}
-        super.processTemplate("/index", request, response);
+        super.processTemplate("fruit/index", request, response);
     }
 
     @Override

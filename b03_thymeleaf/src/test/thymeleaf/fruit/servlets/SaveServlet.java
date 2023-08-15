@@ -10,22 +10,19 @@ import test.thymeleaf.ssm.myspringmvc.ViewBaseServlet;
 
 import java.io.IOException;
 
-@WebServlet("/update")
-public class UpdateServlet extends ViewBaseServlet {
+@WebServlet("/save")
+public class SaveServlet extends ViewBaseServlet {
 
     private FruitDAO fruitDAO = new FruitDAOImpl();
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String fidStr = request.getParameter("fid");
-        Integer fid = Integer.parseInt(fidStr);
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String fname = request.getParameter("fname");
-        String priceStr = request.getParameter("price");
-        int price = Integer.parseInt(priceStr);
-        String fcountStr = request.getParameter("fcount");
-        Integer fcount = Integer.parseInt(fcountStr);
+        Integer price = Integer.parseInt(request.getParameter("price"));
+        Integer fcount = Integer.parseInt(request.getParameter("fcount"));
         String remark = request.getParameter("remark");
-        fruitDAO.updateFruit(new Fruit(fid, fname, price, fcount, remark));
+        Fruit fruit = new Fruit(0, fname, price, fcount, remark);
+        fruitDAO.addFruit(fruit);
         response.sendRedirect("index");
     }
 }

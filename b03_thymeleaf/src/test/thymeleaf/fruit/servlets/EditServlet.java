@@ -10,7 +10,7 @@ import test.thymeleaf.ssm.myspringmvc.ViewBaseServlet;
 
 import java.io.IOException;
 
-@WebServlet("/edit.do")
+@WebServlet("/edit")
 public class EditServlet extends ViewBaseServlet {
 
     private FruitDAO fruitDAO = new FruitDAOImpl();
@@ -22,7 +22,7 @@ public class EditServlet extends ViewBaseServlet {
             int fid = Integer.parseInt(fidStr);
             Fruit fruit = fruitDAO.getFruitByFid(fid);
             request.setAttribute("fruit", fruit);
-            super.processTemplate("edit", request, response);
+            super.processTemplate("fruit/edit", request, response);
         }
     }
 }
