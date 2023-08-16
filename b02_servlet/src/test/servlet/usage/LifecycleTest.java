@@ -1,5 +1,7 @@
 package test.servlet.usage;
 
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -18,6 +20,17 @@ public class LifecycleTest extends HttpServlet {
     @Override
     public void init() {
         System.out.println("usage test init() 正在初始化.....");
+
+        // 读取 xml 中初始化的参数
+        ServletConfig servletConfig = getServletConfig();
+        String initValue = servletConfig.getInitParameter("hello");
+        System.out.println("initValue = " + initValue);
+
+        // 读取 xml 中上下文参数
+        ServletContext servletContext = getServletContext();
+        String contextConfigLocation = servletContext.getInitParameter("contextConfigLocation");
+        System.out.println("contextConfigLocation = " + contextConfigLocation);
+
     }
 
     @Override

@@ -15,6 +15,10 @@
     <servlet>
         <servlet-name>lifecycleServlet</servlet-name>
         <servlet-class>test.servlet.usage.LifecycleTest</servlet-class>
+        <init-param>
+            <param-name>hello</param-name>
+            <param-value>world</param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
@@ -48,4 +52,10 @@
         <servlet-name>redirectServlet</servlet-name>
         <url-pattern>/redirect</url-pattern>
     </servlet-mapping>
+
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
 </web-app>

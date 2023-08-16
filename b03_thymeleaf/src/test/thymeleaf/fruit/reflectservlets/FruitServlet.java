@@ -142,7 +142,6 @@ public class FruitServlet extends ViewBaseServlet {
 
         session.setAttribute("pageNo", pageNo);
 
-        FruitDAO fruitDAO = new FruitDAOImpl();
         List<Fruit> fruitList = fruitDAO.getFruitList(keyword, pageNo);
 
         session.setAttribute("fruitList", fruitList);
