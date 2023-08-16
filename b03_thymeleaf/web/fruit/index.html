@@ -10,7 +10,7 @@
         <p class="center f30">欢迎使用水果库存后台管理系统</p>
         <div style="border:0px solid red;width:60%;margin-left:20%;text-align:right;">
             <form th:action="@{/index}" method="post" style="float:left;width:60%;margin-left:20%;">
-                <input type="hidden" name="oper" value="search"/>
+                <input type="hidden" name="operate" value="search"/>
                 请输入关键字：<input type="text" name="keyword" th:value="${session.keyword}"/>
                 <input type="submit" value="查询" class="btn"/>
             </form>
@@ -30,7 +30,7 @@
                 <td><a th:text="${fruit.fname}" th:href="@{/edit(fid=${fruit.fid})}">苹果</a></td>
                 <td th:text="${fruit.price}">5</td>
                 <td th:text="${fruit.fcount}">20</td>
-                <td><img src="imgs/del.jpg" class="delImg" th:onclick="|delFruit(${fruit.fid})|"/></td>
+                <td><img src="fruit/imgs/del.jpg" class="delImg" th:onclick="|delFruit(${fruit.fid})|"/></td>
             </tr>
         </table>
         <div style="width:60%;margin-left:20%;border:0px solid red;padding-top:4px;" class="center">

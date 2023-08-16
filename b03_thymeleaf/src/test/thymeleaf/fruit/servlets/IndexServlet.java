@@ -23,12 +23,12 @@ public class IndexServlet extends ViewBaseServlet {
         HttpSession session = request.getSession();
         Integer pageNo = 1;
 
-        String oper = request.getParameter("oper");
+        String operate = request.getParameter("operate");
         // 如果oper!=null 说明 通过表单的查询按钮点击过来的
         // 如果oper是空的，说明 不是通过表单的查询按钮点击过来的
 
         String keyword;
-        if ("search".equals(oper)) {
+        if ("search".equals(operate)) {
             // 说明是点击表单查询发送过来的请求
             // 此时，pageNo应该还原为1 ， keyword应该从请求参数中获取
             pageNo = 1;

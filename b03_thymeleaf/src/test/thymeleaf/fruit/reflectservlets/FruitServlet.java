@@ -1,6 +1,5 @@
 package test.thymeleaf.fruit.reflectservlets;
 
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -11,6 +10,8 @@ import test.thymeleaf.fruit.pojo.Fruit;
 import test.thymeleaf.ssm.myspringmvc.ViewBaseServlet;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
 
 @WebServlet("/fruit.do")
@@ -18,7 +19,7 @@ public class FruitServlet extends ViewBaseServlet {
     private FruitDAO fruitDAO = new FruitDAOImpl();
 
     @Override
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // 设置编码
         request.setCharacterEncoding("UTF-8");
 
@@ -27,28 +28,39 @@ public class FruitServlet extends ViewBaseServlet {
             operate = "index";
         }
 
-        switch (operate) {
-            case "index":
-                index(request, response);
-                break;
-            case "add":
-                add(request, response);
-                break;
-            case "save":
-                save(request, response);
-                break;
-            case "del":
-                del(request, response);
-                break;
-            case "edit":
-                edit(request, response);
-                break;
-            case "update":
-                update(request, response);
-                break;
-            default:
-                throw new RuntimeException("operate值非法!");
+        // 方式一：switch匹配
+//        switch (operate) {
+//            case "index":
+//                index(request, response);
+//                break;
+//            case "add":
+//                add(request, response);
+//                break;
+//            case "save":
+//                save(request, response);
+//                break;
+//            case "del":
+//                del(request, response);
+//                break;
+//            case "edit":
+//                edit(request, response);
+//                break;
+//            case "update":
+//                update(request, response);
+//                break;
+//            default:
+//                throw new RuntimeException("operate值非法!");
+//        }
+
+        // 方式二：反射
+        try {
+            Method method = getClass().getDeclaredMethod(operate, HttpServletRequest.class, HttpServletResponse.class);
+            method.invoke(this, request, response);
+            return;
+        } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
+            e.printStackTrace();
         }
+        throw new RuntimeException("operate值非法!");
     }
 
     private void update(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -98,16 +110,13 @@ public class FruitServlet extends ViewBaseServlet {
 
     }
 
-    private void index(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    private void index(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
         Integer pageNo = 1;
 
-        String oper = request.getParameter("oper");
-        // 如果oper!=null 说明 通过表单的查询按钮点击过来的
-        // 如果oper是空的，说明 不是通过表单的查询按钮点击过来的
-
+        String type = request.getParameter("type");
         String keyword;
-        if ("search".equals(oper)) {
+        if ("search".equals(type)) {
             // 说明是点击表单查询发送过来的请求
             // 此时，pageNo应该还原为1 ， keyword应该从请求参数中获取
             pageNo = 1;

@@ -45,7 +45,7 @@ javax.servlet.Servlet 接口
   1. String method = req.getMethod(); 获取请求的方式
   2. 各种if判断，根据请求方式不同，决定去调用不同的do方法
   3. 在 HttpServlet 这个抽象类中，do方法机构类似
-        
+     
 
 当有请求过来时，service 方法会自动响应（其实是tomcat容器调用的）。
 
@@ -128,35 +128,3 @@ Http是无状态的，因此服务器无法判断这两次请求是同一个客�
 
   - 两次请求响应的过程。客户端肯定知道请求URL有变化
   - 地址栏有变化
-
-### Thymeleaf 视图模板技术
-
-添加thymeleaf的jar包
-
-新建一个Servlet类ViewBaseServlet
-
-在web.xml文件中添加配置
-
-   - 配置前缀 view-prefix
-   - 配置后缀 view-suffix
-
-使得我们的Servlet继承ViewBaseServlet
-
-根据逻辑视图名称 得到 物理视图名称
-
-- 此处的视图名称是 index
-- 那么thymeleaf会将这个 逻辑视图名称 对应到 物理视图 名称上去
-- 逻辑视图名称 ：   index
-- 物理视图名称 ：   view-prefix + 逻辑视图名称 + view-suffix
-- 所以真实的视图名称是：      /       index       .html
-  super.processTemplate("index",request,response);
-
-使用thymeleaf的标签
-
-- th:if
-
-- th:unless
-
-- th:each
-
-- th:text
