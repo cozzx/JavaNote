@@ -1,4 +1,4 @@
-package test.ioc.ssm.myspringmvc.io;
+package test.ioc.ssm.ioc;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

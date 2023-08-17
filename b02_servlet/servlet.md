@@ -1,5 +1,11 @@
 ## Servlet
 
+### 概念
+
+1. Servlet 是 JavaEE 规范之一。
+2. Servlet 是 JavaWeb 三大组件之一。三大组件分别是：Servlet 程序、Filter 过滤器、Listener 监听器。
+3. Servlet 是运行在服务器上的一个 java 小程序，它可以接收客户端发送过来的请求，并响应数据给客户端。
+
 ### 编码
 
 tomcat8之前，设置编码：
@@ -27,6 +33,37 @@ javax.servlet.Servlet 接口
 	javax.servlet.GenericServlet 抽象类
 		javax.servlet.http.HttpServlet 抽象子类
 
+### ServletConfig
+
+ServletConfig 类是 Servlet 程序的配置信息类。
+
+Servlet 程序和 ServletConfig 对象都是由 Tomcat 负责创建，我们负责使用。
+
+Servlet 程序默认是第一次访问的时候创建，ServletConfig 是每个 Servlet 程序创建时，就创建一个对应的 ServletConfig 对象。
+
+作用：
+
+1. 可以获取 Servlet 程序的别名 servlet-name 的值
+2. 获取初始化参数 init-param
+3. 获取 ServletContext 对象
+
+### ServletContext
+
+ServletContext 是一个接口，它表示 Servlet 上下文对象
+
+一个 web 工程，只有一个 ServletContext 对象实例。
+
+ServletContext 对象是一个域对象。
+
+ServletContext 是在 web 工程部署启动的时候创建。在 web 工程停止的时候销毁。
+
+作用：
+
+1. 获取 web.xml 中配置的上下文参数 context-param。
+2. 获取当前的工程路径，格式: /工程路径
+3. 获取工程部署后在服务器硬盘上的绝对路径
+4. 存取数据（setAttribute()、getAttribute()、removeAttribute()）
+
 ### 相关方法
 
 `javax.servlet.Servlet` 接口
@@ -53,11 +90,11 @@ javax.servlet.Servlet 接口
 
 ### 生命周期
 
-生命周期对应Servlet中的三个方法：init(), service(), destroy()。
+生命周期对应 Servlet 中的三个方法：init(), service(), destroy()。
 
-1. 第一次接收请求时，这个 Servlet 会进行实例化(调用构造方法)、初始化(调用init())、然后服务(调用service())
-2. 从第二次请求开始，每一次都是服务
-3. 当容器关闭时，其中的所有的servlet实例会被销毁，调用销毁方法
+1. 第一次接收请求时，这个 Servlet 会进行实例化(调用构造方法)、初始化(调用init())、然后服务(调用service())。
+2. 从第二次请求开始，每一次都是服务(调用service())。
+3. 当容器关闭时，其中的所有的servlet实例会被销毁，调用销毁方法 destroy()。
 4. Servlet实例tomcat只会创建一个，所有的请求都是这个实例去响应。
 
 ### Http协议
@@ -89,6 +126,33 @@ Http请求响应包含两个部分：请求和响应
     - 响应行包含三个信息：1、协议；2、响应状态码(200)；3、响应状态(ok)。
     - 响应头：包含了服务器的信息；服务器发送给浏览器的信息（内容的媒体类型、编码、内容长度等）。
     - 响应体：响应的实际内容（比如请求add.html页面时，响应的内容就是<html><head><body><form....）。
+
+### HttpServletRequest
+
+每次只要有请求进入 Tomcat 服务器，Tomcat 服务器就会把请求过来的 HTTP 协议信息解析好封装到 Request 对象中。 然后传递到 service 方法（doGet 和 doPost）中给我们使用。我们可以通过HttpServletRequest 对象，获取到所有请求的信息。
+
+常用方法
+
+- getRequestURI() 获取请求的资源路径 
+- getRequestURL() 获取请求的统一资源定位符（绝对路径） 
+- getRemoteHost() 获取客户端的 ip 地址 
+- getHeader() 获取请求头 
+- getParameter() 获取请求的参数 
+- getParameterValues() 获取请求的参数（多个值的时候使用） 
+- getMethod() 获取请求的方式 GET 或 POST 
+- setAttribute(key, value); 设置域数据 
+- getAttribute(key); 获取域数据 
+- getRequestDispatcher() 获取请求转发对象
+- setCharacterEncoding("UTF-8"); 设置字符编码，解决post请求中文乱码问题
+
+### HttpServletResponse
+
+HttpServletResponse 类和 HttpServletRequest 类一样。每次请求进来，Tomcat 服务器都会创建一个 Response 对象传递给 Servlet 程序去使用。HttpServletRequest 表示请求过来的信息，HttpServletResponse 表示所有响应的信息，我们如果需要设置返回给客户端的信息，都可以通过 HttpServletResponse 对象来进行设置。
+
+常用方法
+
+- getOutputStream(); 字节流，常用于下载（传递二进制数据）。
+- getWriter(); 字符流，常用于回传字符串（常用）。
 
 ### 会话
 
@@ -128,3 +192,5 @@ Http是无状态的，因此服务器无法判断这两次请求是同一个客�
 
   - 两次请求响应的过程。客户端肯定知道请求URL有变化
   - 地址栏有变化
+
+- 

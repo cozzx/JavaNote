@@ -3,7 +3,7 @@ package test.thymeleaf.fruit.servlets;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import test.thymeleaf.ssm.myspringmvc.ViewBaseServlet;
+import test.thymeleaf.ssm.dispatch.ViewBaseServlet;
 
 import java.io.IOException;
 

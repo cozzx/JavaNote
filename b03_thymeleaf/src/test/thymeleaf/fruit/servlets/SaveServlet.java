@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import test.thymeleaf.fruit.dao.FruitDAO;
 import test.thymeleaf.fruit.dao.impl.FruitDAOImpl;
 import test.thymeleaf.fruit.pojo.Fruit;
-import test.thymeleaf.ssm.myspringmvc.ViewBaseServlet;
+import test.thymeleaf.ssm.dispatch.ViewBaseServlet;
 
 import java.io.IOException;
 

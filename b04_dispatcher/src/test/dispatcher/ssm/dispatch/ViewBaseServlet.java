@@ -1,4 +1,4 @@
-package test.dispatcher.ssm.myspringmvc;
+package test.dispatcher.ssm.dispatch;
 
 
 import jakarta.servlet.ServletContext;

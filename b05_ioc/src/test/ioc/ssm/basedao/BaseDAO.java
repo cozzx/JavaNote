@@ -80,8 +80,7 @@ public abstract class BaseDAO<T> {
      * 执行更新，返回影响行数
      */
     protected int executeUpdate(String sql, Object... params) {
-        boolean insertFlag = false;
-        insertFlag = sql.trim().toUpperCase().startsWith("INSERT");
+        boolean insertFlag = sql.trim().toUpperCase().startsWith("INSERT");
         try {
             conn = getConn();
             if (insertFlag) {
@@ -92,11 +91,15 @@ public abstract class BaseDAO<T> {
             setParams(psmt, params);
             int count = psmt.executeUpdate();
 
-            rs = psmt.getGeneratedKeys();
-            if (rs.next()) {
-                return ((Long) rs.getLong(1)).intValue();
+            if (insertFlag) {
+                rs = psmt.getGeneratedKeys();
+                if (rs.next()) {
+                    return ((Long) rs.getLong(1)).intValue();
+                }
+            } else {
+                return count;
             }
-            return count;
+            return 0;
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

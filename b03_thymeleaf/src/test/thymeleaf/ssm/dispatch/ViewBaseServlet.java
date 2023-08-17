@@ -1,4 +1,4 @@
-package test.thymeleaf.ssm.myspringmvc;
+package test.thymeleaf.ssm.dispatch;
 
 
 import jakarta.servlet.ServletContext;
@@ -68,7 +68,7 @@ public class ViewBaseServlet extends HttpServlet {
         IWebExchange iWebExchange = jakartaServletWebApplication.buildExchange(req, resp);
         WebContext webContext = new WebContext(iWebExchange);
         webContext.setVariable("url", getServletContext().getContextPath());
-        
+
         // 3.处理模板数据
         templateEngine.process(templateName, webContext, resp.getWriter());
     }

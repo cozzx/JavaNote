@@ -1,4 +1,4 @@
-package test.ioc.ssm.myspringmvc;
+package test.ioc.ssm.dispatch;
 
 
 import jakarta.servlet.ServletContext;

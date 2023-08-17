@@ -1,10 +1,10 @@
-package test.ioc.ssm.myspringmvc;
+package test.ioc.ssm.dispatch;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import test.ioc.ssm.myspringmvc.io.BeanFactory;
-import test.ioc.ssm.myspringmvc.io.ClassPathXmlApplicationContext;
+import test.ioc.ssm.ioc.BeanFactory;
+import test.ioc.ssm.ioc.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
