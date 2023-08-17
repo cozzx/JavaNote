@@ -690,7 +690,7 @@ Class.forName() 会执行执行类构造器<clinit>()方法。
 
 ### 创建对象的几种方法
 
-![relection_iv_1](/Users/zhangtao/Code/Java/demo/JavaSE/p17_reflection/images/relection_iv_1.png)
+![relection_iv_1](images/relection_iv_1.png)
 
 ### 如何找到对象的实际类
 
