@@ -1,0 +1,3 @@
+ClassPathResourceTest
+123
+456

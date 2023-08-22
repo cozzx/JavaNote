@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       https://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="studentOne" class="com.zt.spring6.bean.di.Student">
+        <property name="id" value="1001"/>
+        <property name="name" value="mike"/>
+        <property name="age" value="23"/>
+        <property name="sex" value="男"/>
+    </bean>
+    <bean id="studentTwo" class="com.zt.spring6.bean.di.Student">
+        <constructor-arg value="1002"/>
+        <constructor-arg value="lily"/>
+        <constructor-arg value="21"/>
+        <constructor-arg value="女"/>
+    </bean>
+    <bean id="studentThree" class="com.zt.spring6.bean.di.Student">
+        <property name="id" value="1003"/>
+        <property name="name">
+            <null/>
+        </property>
+        <property name="age" value="23"/>
+        <property name="sex" value="a &lt; b"/>
+    </bean>
+
+    <bean id="teacherOne" class="com.zt.spring6.bean.di.Teacher">
+        <property name="teacherId" value="1001"/>
+        <property name="teacherName" value="t1"/>
+    </bean>
+
+    <bean id="teacherTwo" class="com.zt.spring6.bean.di.Teacher">
+        <property name="teacherId" value="1002"/>
+        <property name="teacherName" value="t2"/>
+    </bean>
+
+
+    <!-- list集合类型的bean -->
+    <util:list id="students">
+        <ref bean="studentOne"/>
+        <ref bean="studentTwo"/>
+        <ref bean="studentThree"/>
+    </util:list>
+
+    <!-- map集合类型的bean -->
+    <util:map id="teacherMap">
+        <entry key="1001" value-ref="teacherOne"/>
+        <entry key="1002" value-ref="teacherTwo"/>
+    </util:map>
+
+
+    <bean id="clazzOne" class="com.zt.spring6.bean.di.Clazz">
+        <property name="clazzId" value="1111"/>
+        <property name="clazzName" value="Java1111"/>
+        <property name="students" ref="students"/>
+    </bean>
+    <bean id="studentFour" class="com.zt.spring6.bean.di.Student">
+        <property name="id" value="1004"/>
+        <property name="name" value="lucy"/>
+        <property name="age" value="26"/>
+        <property name="sex" value="女"/>
+        <property name="clazz" ref="clazzOne"/>
+        <property name="hobbies">
+            <array>
+                <value>抽烟</value>
+                <value>喝酒</value>
+                <value>烫头</value>
+            </array>
+        </property>
+        <property name="teacherMap" ref="teacherMap"/>
+    </bean>
+
+
+    <!--  命名空间  -->
+    <bean id="studentFive" class="com.zt.spring6.bean.di.Student"
+          p:id="1005" p:name="小明" p:clazz-ref="clazzOne" p:teacherMap-ref="teacherMap"/>
+
+
+    <!--  引入文件  -->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="url" value="${jdbc.url}"/>
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="username" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+</beans>
