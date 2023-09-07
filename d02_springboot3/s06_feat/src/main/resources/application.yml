@@ -1,0 +1,8 @@
+spring:
+  banner:
+    location: classpath:banner.txt
+  profiles:
+    # 激活环境
+    active: dev
+    # 不管激活哪个环境，下面的总生效
+    include: default,prod

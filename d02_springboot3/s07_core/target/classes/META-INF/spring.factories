@@ -1,0 +1,2 @@
+org.springframework.boot.SpringApplicationRunListener=com.zt.core.listener.MyAppListener
+org.springframework.context.ApplicationListener=com.zt.core.listener.MyListener
