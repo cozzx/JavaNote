@@ -1,6 +1,5 @@
 package binary;
 
-import org.junit.Test;
 
 /**
  * 进制
@@ -10,9 +9,7 @@ import org.junit.Test;
  **/
 public class BinaryTest {
 
-    @Test
-    public void test1() {
-
+    public static void main(String[] args) {
         int num1 = 123;
         int num2 = 0b101;
         int num3 = 0127;
