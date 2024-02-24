@@ -4,26 +4,24 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.zt</groupId>
-        <artifactId>d02_springboot3</artifactId>
+        <groupId>com.cozz</groupId>
+        <artifactId>d03_springcloud</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>s07_core</artifactId>
+    <artifactId>sc-eureka-7002</artifactId>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>com.zt</groupId>
-            <artifactId>s08_robot_start</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
-        
     </dependencies>
 
 </project>
