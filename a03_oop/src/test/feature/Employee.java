@@ -2,11 +2,12 @@ package test.feature;
 
 /**
  * @author zt
- * @since 2023/6/27 18:21
+ * @date 2023/6/27
  **/
 public class Employee extends People {
 
     double salary;
+    int age = 18;
 
     public Employee() {
         System.out.println("我是一名打工仔");

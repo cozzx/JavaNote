@@ -6,7 +6,7 @@ import org.junit.Test;
  * 自定义异常类
  *
  * @author zt
- * @since 2023/7/19 23:53
+ * @date 2023/7/19
  **/
 public class CustomTest2 {
 

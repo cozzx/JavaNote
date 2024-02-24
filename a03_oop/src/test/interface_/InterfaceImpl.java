@@ -2,7 +2,7 @@ package test.interface_;
 
 /**
  * @author zt
- * @since 2023/8/17 18:18
+ * @date 2023/8/17
  **/
 public class InterfaceImpl implements Usb {
     @Override

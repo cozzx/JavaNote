@@ -6,7 +6,7 @@ import java.util.Arrays;
  * 使用数组实现队列
  *
  * @author zt
- * @since 2023/7/4 07:48
+ * @date 2023/7/4 07:48
  **/
 public class QueueCustom {
 

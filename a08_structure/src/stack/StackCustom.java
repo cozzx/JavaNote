@@ -6,7 +6,7 @@ import java.util.Arrays;
  * 自定义栈
  *
  * @author zt
- * @since 2023/7/4 07:23
+ * @date 2023/7/4 07:23
  **/
 public class StackCustom {
 

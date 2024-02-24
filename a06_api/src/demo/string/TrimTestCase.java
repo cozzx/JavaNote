@@ -6,7 +6,7 @@ import org.junit.Test;
  * 去除字符串两端的字符
  *
  * @author zt
- * @since 2023/7/21 20:17
+ * @date 2023/7/21
  **/
 public class TrimTestCase {
 

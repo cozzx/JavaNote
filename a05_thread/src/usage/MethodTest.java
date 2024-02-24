@@ -6,7 +6,7 @@ import org.junit.Test;
  * 线程类的一些方法
  *
  * @author zt
- * @since 2023/7/26 22:40
+ * @date 2023/7/26 22:40
  **/
 public class MethodTest {
 

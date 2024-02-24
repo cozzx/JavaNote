@@ -6,7 +6,7 @@ import org.junit.Test;
  * 死锁测试
  *
  * @author zt
- * @since 2023/7/29 07:08
+ * @date 2023/7/29 07:08
  **/
 public class DeadlockTest {
 

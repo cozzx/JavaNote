@@ -6,7 +6,7 @@ import org.junit.Test;
  * 运行时类，与运行的环境相关
  *
  * @author zt
- * @since 2023/7/25 22:38
+ * @date 2023/7/25
  **/
 public class RuntimeTest {
 

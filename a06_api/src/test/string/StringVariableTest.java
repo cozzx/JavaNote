@@ -6,7 +6,7 @@ import org.junit.Test;
  * 可变字符序列测试
  *
  * @author zt
- * @since 2023/7/22 19:48
+ * @date 2023/7/22
  **/
 public class StringVariableTest {
 

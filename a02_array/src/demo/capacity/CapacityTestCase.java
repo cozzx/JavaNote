@@ -8,7 +8,7 @@ import java.util.Arrays;
  * 数组扩容缩容案例
  *
  * @author zt
- * @since 2023/8/2 12:48
+ * @date 2023/8/2
  **/
 public class CapacityTestCase {
 

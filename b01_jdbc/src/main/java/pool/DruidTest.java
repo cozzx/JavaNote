@@ -12,7 +12,7 @@ import java.util.Properties;
  * druid 连接池
  *
  * @author zt
- * @since 2023/7/7 07:49
+ * @date 2023/7/7
  **/
 public class DruidTest {
 
@@ -23,8 +23,7 @@ public class DruidTest {
 
     public synchronized static Connection getConnection1() {
         if (connection == null) {
-            try {
-                DruidDataSource druidDataSource = new DruidDataSource();
+            try (DruidDataSource druidDataSource = new DruidDataSource()) {
                 druidDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
                 druidDataSource.setUrl("jdbc:mysql:///test");
                 druidDataSource.setUsername("zt");

@@ -10,7 +10,7 @@ import java.util.Random;
  * 数值操作类
  *
  * @author zt
- * @since 2023/7/25 22:49
+ * @date 2023/7/25
  **/
 public class MathTest {
 

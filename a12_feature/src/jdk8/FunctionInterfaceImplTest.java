@@ -4,7 +4,7 @@ import org.junit.Test;
 
 /**
  * @author zt
- * @since 2023/6/27 19:33
+ * @date 2023/6/27 19:33
  **/
 public class FunctionInterfaceImplTest {
 

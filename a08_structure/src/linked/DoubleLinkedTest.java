@@ -6,7 +6,7 @@ import org.junit.Test;
  * 单链表测试
  *
  * @author zt
- * @since 2023/7/3 21:58
+ * @date 2023/7/3 21:58
  **/
 public class DoubleLinkedTest {
 

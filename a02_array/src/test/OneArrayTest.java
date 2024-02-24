@@ -6,7 +6,7 @@ import org.junit.Test;
  * 一维数组数组的使用
  *
  * @author zt
- * @since 2023/7/13 08:18
+ * @date 2023/7/13
  **/
 public class OneArrayTest {
 

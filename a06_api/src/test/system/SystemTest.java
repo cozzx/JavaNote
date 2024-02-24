@@ -8,7 +8,7 @@ import java.util.Arrays;
  * 系统类的使用测试
  *
  * @author zt
- * @since 2023/7/25 18:43
+ * @date 2023/7/25
  **/
 public class SystemTest {
 

@@ -6,7 +6,7 @@ import org.junit.Test;
  * 数组元素查找
  *
  * @author zt
- * @since 2023/8/2 13:00
+ * @date 2023/8/2
  **/
 public class FindTestCase {
 

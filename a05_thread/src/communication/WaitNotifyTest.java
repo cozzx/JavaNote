@@ -6,7 +6,7 @@ import org.junit.Test;
  * 线程通信：等待唤醒机制
  *
  * @author zt
- * @since 2023/7/29 09:49
+ * @date 2023/7/29
  **/
 public class WaitNotifyTest {
 

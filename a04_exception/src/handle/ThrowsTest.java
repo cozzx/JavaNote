@@ -10,7 +10,7 @@ import java.util.Scanner;
  * 异常处理 抛出 throws
  *
  * @author zt
- * @since 2023/7/19 23:00
+ * @date 2023/7/19 23:00
  **/
 public class ThrowsTest {
 

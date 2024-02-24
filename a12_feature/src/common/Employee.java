@@ -4,7 +4,7 @@ import java.util.Objects;
 
 /**
  * @author zt
- * @since 2023/6/27 18:21
+ * @date 2023/6/27 18:21
  **/
 public class Employee implements Comparable<Employee> {
     private int id;

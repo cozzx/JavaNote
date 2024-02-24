@@ -10,7 +10,7 @@ import java.io.IOException;
  * 异常处理 try-catch-finally
  *
  * @author zt
- * @since 2023/7/19 22:35
+ * @date 2023/7/19
  **/
 public class CatchTest {
 
@@ -76,6 +76,7 @@ public class CatchTest {
             return i;
         } finally {
             i++;
+            System.out.println("i = " + i);
         }
     }
 }

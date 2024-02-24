@@ -6,7 +6,7 @@ import org.junit.Test;
  * 生产者消费者问题
  *
  * @author zt
- * @since 2023/7/29 10:22
+ * @date 2023/7/29
  **/
 public class ProducerConsumerTest {
 

@@ -4,7 +4,7 @@ package safe.singleton;
  * 单例模式饿汉式
  *
  * @author zt
- * @since 2023/7/27 20:45
+ * @date 2023/7/27 20:45
  **/
 public class HungrySingle {
 

@@ -9,7 +9,7 @@ import java.util.Scanner;
  * 通过模拟登录，进行 JDBC 使用步骤的详细解析
  *
  * @author zt
- * @since 2023/7/6 07:18
+ * @date 2023/7/6
  **/
 public class Login1Test {
 

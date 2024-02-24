@@ -1,0 +1,36 @@
+server:
+  port: 8084
+spring:
+  web:
+    # 配置静态资源策略(开启、处理链、缓存)
+    resources:
+      # 开启静态资源映射规则
+      add-mappings: true
+      # 设置缓存
+      cache:
+        period: 3600
+        # 缓存详细合并项控制，覆盖period配置
+        cachecontrol:
+          # 浏览器第一次请求服务器，服务器告诉浏览器此资源缓存7200秒，7200秒以内的所有此资源访问不用发给服务器请求，7200秒以后发请求给服务器
+          max-age: 7200
+          # 共享缓存
+          cache-public: true
+        # 使用资源 last-modified 时间，来对比服务器和浏览器的资源是否相同没有变化。相同返回 304
+        use-last-modified: true
+      # 自定义静态资源文件夹位置
+      static-locations: classpath:/a/,classpath:/b/,classpath:/static/
+
+  mvc:
+    # 自定义 webjars 路径前缀
+    webjars-path-pattern: /wj/**
+    # 自定义静态资源访问路径前缀
+    static-path-pattern: /static/**
+    # 内容协商功能
+    contentnegotiation:
+      # 开启基于请求参数的内容协商功能。默认此功能不开启
+      favor-parameter: true
+      # 指定内容协商时使用的参数名。默认是 format
+      parameter-name: type
+      # 自定义内容类型
+      media-types:
+        yaml: text/yaml

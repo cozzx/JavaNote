@@ -9,7 +9,7 @@ import java.util.Comparator;
  * 泛型的使用举例
  *
  * @author zt
- * @since 2023/7/5 20:16
+ * @date 2023/7/5 20:16
  **/
 public class GenericTest {
 

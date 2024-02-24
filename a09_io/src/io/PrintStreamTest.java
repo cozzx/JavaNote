@@ -11,7 +11,7 @@ import java.util.Scanner;
  * 打印流
  *
  * @author zt
- * @since 2023/7/3 08:24
+ * @date 2023/7/3
  **/
 public class PrintStreamTest {
 

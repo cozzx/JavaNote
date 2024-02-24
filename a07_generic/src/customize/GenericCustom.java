@@ -6,7 +6,7 @@ import java.util.*;
  * 自定义泛型类
  *
  * @author zt
- * @since 2023/7/5 20:15
+ * @date 2023/7/5 20:15
  **/
 public class GenericCustom<T> {
 

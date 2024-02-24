@@ -8,7 +8,7 @@ import java.util.Arrays;
  * Arrays 工具类测试
  *
  * @author zt
- * @since 2023/8/2 11:19
+ * @date 2023/8/2
  **/
 public class ArraysUtilTest {
 

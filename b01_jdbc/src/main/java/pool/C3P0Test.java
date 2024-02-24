@@ -11,7 +11,7 @@ import java.sql.SQLException;
  * C3P0 数据库连接池
  *
  * @author zt
- * @since 2023/8/3 22:36
+ * @date 2023/8/3
  **/
 public class C3P0Test {
 

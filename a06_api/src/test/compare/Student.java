@@ -2,7 +2,7 @@ package test.compare;
 
 /**
  * @author zt
- * @since 2023/7/25 07:25
+ * @date 2023/7/25
  **/
 public class Student implements Comparable<Student> {
 

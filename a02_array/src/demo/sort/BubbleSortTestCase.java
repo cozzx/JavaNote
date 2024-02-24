@@ -8,7 +8,7 @@ import java.util.Arrays;
  * 数组排序 - 冒泡排序
  *
  * @author zt
- * @since 2023/8/2 12:16
+ * @date 2023/8/2
  **/
 public class BubbleSortTestCase {
 

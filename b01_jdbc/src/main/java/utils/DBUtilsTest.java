@@ -18,7 +18,7 @@ import java.util.List;
  * Apache JDBC 工具类
  *
  * @author zt
- * @since 2023/8/4 15:03
+ * @date 2023/8/4
  **/
 public class DBUtilsTest {
 

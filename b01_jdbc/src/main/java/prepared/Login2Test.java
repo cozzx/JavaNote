@@ -9,7 +9,7 @@ import java.util.Scanner;
  * 使用 PreparedStatement 模拟登录
  *
  * @author zt
- * @since 2023/7/6 19:42
+ * @date 2023/7/6
  **/
 public class Login2Test {
 

@@ -6,7 +6,7 @@ import org.junit.Test;
  * 线程安全测试
  *
  * @author zt
- * @since 2023/7/27 19:21
+ * @date 2023/7/27 19:21
  **/
 public class SafeTest {
 

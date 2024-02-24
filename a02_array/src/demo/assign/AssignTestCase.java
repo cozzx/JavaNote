@@ -10,7 +10,7 @@ import java.util.Scanner;
  * 数组赋值案例
  *
  * @author zt
- * @since 2023/8/2 07:56
+ * @date 2023/8/2
  **/
 public class AssignTestCase {
 

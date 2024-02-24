@@ -3,10 +3,10 @@ package test.component;
 import java.util.Date;
 
 /**
- * 人类
+ * 类的成员
  *
  * @author zt
- * @since 2023/6/27 18:21
+ * @date 2023/6/27
  **/
 public class People {
 
@@ -19,16 +19,16 @@ public class People {
     // 成员变量 - 类变量（静态变量）
     public static int limbs;
 
-    // 非静态代码块，晚于静态代码块执行
-    {
-        System.out.println("People非静态代码块");
-        name = "";
-    }
-
     // 静态代码块
     static {
         System.out.println("People静态代码块");
         limbs = 4;
+    }
+
+    // 非静态代码块，晚于静态代码块执行
+    {
+        System.out.println("People非静态代码块");
+        name = "";
     }
 
     // 空参构造器

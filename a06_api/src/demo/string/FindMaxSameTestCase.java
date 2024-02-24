@@ -8,7 +8,7 @@ import java.util.Arrays;
  * 找最大相同子字符串
  *
  * @author zt
- * @since 2023/7/21 19:57
+ * @date 2023/7/21
  **/
 public class FindMaxSameTestCase {
 

@@ -6,7 +6,7 @@ import org.junit.Test;
  * 自定义数组测试
  *
  * @author zt
- * @since 2023/7/3 21:04
+ * @date 2023/7/3 21:04
  **/
 public class ArrayTest {
 

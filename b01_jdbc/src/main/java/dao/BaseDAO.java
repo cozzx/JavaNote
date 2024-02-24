@@ -15,7 +15,7 @@ import java.util.List;
  * 用于被继承的，对数据库进行基本操作的DAO
  *
  * @author zt
- * @since 2023/8/3 22:34
+ * @date 2023/8/3
  **/
 public abstract class BaseDAO<T> {
 

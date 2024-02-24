@@ -4,7 +4,7 @@ import org.junit.Test;
 
 /**
  * @author zt
- * @since 2023/8/17 20:07
+ * @date 2023/8/17
  **/
 public class EnumTest {
 

@@ -6,9 +6,9 @@ import java.sql.Connection;
 
 /**
  * @author zt
- * @since 2023/8/4 16:23
+ * @date 2023/8/4
  **/
-public class UserDAOImpl extends BaseDAO<User> implements UserDao {
+public class UserDAOImpl extends BaseDAO<User> implements UserDAO {
     @Override
     public User getUser(Connection conn, User user) {
         User bean;

@@ -4,7 +4,7 @@ package linked;
  * 自定义双链表
  *
  * @author zt
- * @since 2023/7/3 21:23
+ * @date 2023/7/3 21:23
  **/
 public class DoubleLinkedCustom<E> {
 

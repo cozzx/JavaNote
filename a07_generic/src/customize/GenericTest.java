@@ -9,7 +9,7 @@ import java.util.List;
  * 自定义泛型类测试
  *
  * @author zt
- * @since 2023/7/5 20:15
+ * @date 2023/7/5 20:15
  **/
 public class GenericTest<T> {
 

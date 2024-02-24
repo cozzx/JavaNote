@@ -1,0 +1,52 @@
+server:
+  port: 8082
+cat:
+  id: 1
+  name: tom
+  age: 3
+dog:
+  id: 2
+  name: chase
+  age: 5
+pig:
+  id: 3
+  name: peppa
+  age: 4
+
+--- # 分割线，下边是一个单独文档
+
+person:
+  name: oli
+  age: 23
+  birth-day: 2002/02/02
+  married: false
+  cat:
+    id: 1
+    name: tom
+    age: 3
+  dogs:
+    - id: 2
+      name: chase
+      age: 4
+    - id: 3
+      name: rocky
+      age: 5
+  pigs:
+    no1:
+      id: 4
+      name: peppa
+      age: 5
+    no2: {id: 5, name: george, age: 2}
+  text:
+    - abc
+    - def
+    - |
+      dogs:
+        - name: 小黑
+          age: 3
+        - name: 小白
+          age: 2
+    - >
+      测试换行
+      测试换行
+      测试换行

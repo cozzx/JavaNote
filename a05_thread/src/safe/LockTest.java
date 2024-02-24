@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * Lock 的使用
  *
  * @author zt
- * @since 2023/7/29 07:05
+ * @date 2023/7/29
  **/
 public class LockTest {
 

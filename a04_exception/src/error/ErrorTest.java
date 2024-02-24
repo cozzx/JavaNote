@@ -6,7 +6,7 @@ import org.junit.Test;
  * 常见的错误
  *
  * @author zt
- * @since 2023/7/19 20:35
+ * @date 2023/7/19
  **/
 public class ErrorTest {
 

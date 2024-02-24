@@ -11,7 +11,7 @@ import java.sql.SQLException;
  * 事务操作
  *
  * @author zt
- * @since 2023/8/3 21:00
+ * @date 2023/8/3
  **/
 public class TransactionTest {
 

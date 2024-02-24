@@ -6,7 +6,7 @@ import org.junit.Test;
  * 常见的编译时异常（受检异常）
  *
  * @author zt
- * @since 2023/7/19 20:57
+ * @date 2023/7/19
  **/
 public class CheckedExceptionTest {
 

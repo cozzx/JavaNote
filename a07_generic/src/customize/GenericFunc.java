@@ -11,7 +11,7 @@ import java.util.Collection;
  * 单独定义泛型方法
  *
  * @author zt
- * @since 2023/7/5 20:42
+ * @date 2023/7/5 20:42
  **/
 public class GenericFunc {
 

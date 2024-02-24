@@ -6,7 +6,7 @@ import org.junit.Test;
  * 单例模式饿汉式没有线程安全问题
  *
  * @author zt
- * @since 2023/7/27 20:45
+ * @date 2023/7/27 20:45
  **/
 public class HungrySingleTest {
     HungrySingle hs1 = null;

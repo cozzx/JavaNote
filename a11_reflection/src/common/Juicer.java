@@ -2,7 +2,7 @@ package common;
 
 /**
  * @author zt
- * @since 2023/6/29 19:50
+ * @date 2023/6/29 19:50
  **/
 public class Juicer {
 

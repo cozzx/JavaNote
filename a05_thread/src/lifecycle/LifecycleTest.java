@@ -6,7 +6,7 @@ import org.junit.Test;
  * 线程生命周期
  *
  * @author zt
- * @since 2023/7/27 06:49
+ * @date 2023/7/27 06:49
  **/
 public class LifecycleTest {
 

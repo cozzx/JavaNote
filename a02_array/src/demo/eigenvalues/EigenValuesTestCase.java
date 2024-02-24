@@ -9,7 +9,7 @@ import java.util.Random;
  * 特征值计算案例
  *
  * @author zt
- * @since 2023/8/1 06:46
+ * @date 2023/8/1
  **/
 public class EigenValuesTestCase {
 

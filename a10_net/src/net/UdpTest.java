@@ -11,7 +11,7 @@ import java.net.InetSocketAddress;
  * UDP通信测试
  *
  * @author zt
- * @since 2023/7/3 18:47
+ * @date 2023/7/3
  **/
 public class UdpTest {
 

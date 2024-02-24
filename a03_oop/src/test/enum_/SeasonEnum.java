@@ -2,7 +2,7 @@ package test.enum_;
 
 /**
  * @author zt
- * @since 2023/8/17 20:03
+ * @date 2023/8/17
  **/
 public enum SeasonEnum {
     SPRING("春天", "春风又绿江南岸"),

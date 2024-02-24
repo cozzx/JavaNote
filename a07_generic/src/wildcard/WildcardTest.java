@@ -12,7 +12,7 @@ import java.util.List;
  * 通配符使用测试
  *
  * @author zt
- * @since 2023/7/5 21:27
+ * @date 2023/7/5 21:27
  **/
 public class WildcardTest {
 

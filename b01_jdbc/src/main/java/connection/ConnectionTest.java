@@ -11,7 +11,7 @@ import java.util.Properties;
  * 使用配置文件方式进行数据库连接
  *
  * @author zt
- * @since 2023/7/9 18:06
+ * @date 2023/7/9
  **/
 public class ConnectionTest {
 

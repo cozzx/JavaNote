@@ -5,8 +5,10 @@ import org.junit.Test;
 import java.util.Date;
 
 /**
+ * 测试类的成员
+ *
  * @author zt
- * @since 2023/6/27 18:21
+ * @date 2023/6/27
  **/
 public class ComponentTest {
 
@@ -22,5 +24,12 @@ public class ComponentTest {
         People p2 = new People("tom", 0, '男', new Date());
         p2.sleep();
         People.getLimbs();
+    }
+
+    @Test
+    public void test3() {
+        MethodExt methodExt = new MethodExt();
+        methodExt.test("a", "吧", "c");
+        methodExt.test("a", 1, 2);
     }
 }

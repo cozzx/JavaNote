@@ -10,7 +10,7 @@ import java.util.Date;
  * jdk8之前的时间api
  *
  * @author zt
- * @since 2023/7/21 23:25
+ * @date 2023/7/21
  **/
 public class DateTest {
 

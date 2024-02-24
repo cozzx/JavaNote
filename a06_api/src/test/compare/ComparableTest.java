@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 /**
  * @author zt
- * @since 2023/7/25 07:23
+ * @date 2023/7/25
  **/
 public class ComparableTest {
 

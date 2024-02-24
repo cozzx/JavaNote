@@ -11,7 +11,7 @@ import java.sql.SQLException;
  * 数据库连接池测试
  *
  * @author zt
- * @since 2023/8/4 13:23
+ * @date 2023/8/4
  **/
 public class PoolTest {
 

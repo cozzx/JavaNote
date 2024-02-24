@@ -9,7 +9,7 @@ import java.net.Socket;
 
 /**
  * @author zt
- * @since 2023/6/30 12:28
+ * @date 2023/6/30
  **/
 public class SocketTest {
 
@@ -32,8 +32,9 @@ public class SocketTest {
             e.printStackTrace();
         } finally {
             try {
-                if (socket != null)
+                if (socket != null) {
                     socket.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
