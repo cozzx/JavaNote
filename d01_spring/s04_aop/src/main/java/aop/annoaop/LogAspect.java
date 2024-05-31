@@ -2,6 +2,7 @@ package aop.annoaop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.*;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -94,15 +95,28 @@ public class LogAspect {
      */
     @Around(value = "pointCut()")
     public Object aroundMethod(ProceedingJoinPoint joinPoint) {
-        String methodName = joinPoint.getSignature().getName();
+        // JoinPoint 对象
+        // 1. 通过 JoinPoint 对象获取目标方法的签名对象
+        Signature signature = joinPoint.getSignature();
+        // 2. 通过方法的签名对象获取目标方法信息
+        String methodName = signature.getName();
+        System.out.println("methodName = " + methodName);
+        int modifiers = signature.getModifiers();
+        System.out.println("modifiers = " + modifiers);
+        String declaringTypeName = signature.getDeclaringTypeName();
+        System.out.println("declaringTypeName = " + declaringTypeName);
+        // 3. 通过JoinPoint对象获取外界调用目标方法时的实参列表
         Object[] args = joinPoint.getArgs();
         String argString = Arrays.toString(args);
+        System.out.println("argString = " + argString);
+
         Object result = null;
         try {
             System.out.println("环绕通知-->目标方法之前执行");
 
             // 调用目标方法
             result = joinPoint.proceed();
+            System.out.println("result = " + result);
 
             System.out.println("环绕通知-->目标方法返回值之后");
         } catch (Throwable throwable) {
