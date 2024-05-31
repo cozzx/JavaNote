@@ -1,0 +1,76 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+        service-name: ${spring.application.name}
+    gateway:
+      routes:
+        # 路由的ID(类似mysql主键ID)，没有固定规则但要求唯一，建议配合服务名
+        - id: pay-route1
+          uri: lb://sc-consul-provider
+          predicates:
+            # 断言，路径相匹配的进行路由
+            - Path=/payment/gateway/get/**
+            # 访问时间控制
+            - After=2024-03-03T15:02:39.079979400+08:00[Asia/Shanghai]
+            # 请求头要携带 Cookie 并且 键为 username 值为 cozz
+            - Cookie=username,cozz
+            # 请求头要有 X-Request-Id 属性并且值为整数的正则表达式
+            - Header=X-Request-Id, \d+
+            # 请求头 host 地址为 xxx.com 域名
+            - Host=**.xxx.com
+            # 限制参数名为 username 并且值为整数
+            - Query=username, \d+
+            # 外部访问我的IP限制，最大跨度不超过32，目前是1~24它们是 CIDR 表示法。
+#            - RemoteAddr=192.168.100.1/24
+
+        - id: pay-route2
+          uri: lb://sc-consul-provider
+          predicates:
+            # 断言，路径相匹配的进行路由
+            - Path=/payment/gateway/info/**
+            # 自定义断言
+            - My=gold
+
+        - id: pay-routh3
+          uri: lb://sc-consul-provider
+          predicates:
+            - Path=/payment/gateway/filter/**
+            # 断言，为配合过滤器 PrefixPath 测试，暂时注释掉 /payment
+#            - Path=/gateway/filter/**
+            # 断言，为配合过滤器 SetPath 测试，{segment} 的内容最后被 SetPath 取代
+#            - Path=/XYZ/abc/{segment}
+          filters:
+            # 自定义过滤器 My
+            - My=keyword
+            # 访问 http://localhost:9527/payment/gateway/filter 跳转到 http://www.baidu.com/
+#            - RedirectTo=302, http://www.baidu.com/
+            # {segment}表示占位符，word随意但是要上下一致
+#            - SetPath=/payment/gateway/{segment}
+            # http://localhost:9527/payment/gateway/filter  被分拆为: PrefixPath + Path
+#            - PrefixPath=/payment
+            # 请求头kv，若一头含有多参则重写一行设置
+            - AddRequestHeader=X-Request-cozz1,cozzValue1
+            - AddRequestHeader=X-Request-cozz2,cozzValue2
+            # 删除请求头 sec-fetch-site
+#            - RemoveRequestHeader=sec-fetch-site
+            # 将请求头 sec-fetch-mode 对应的值修改为 updateCo
+#            - SetRequestHeader=sec-fetch-mode, updateCo
+            # 新增请求参数 Parameter：k,v
+#            - AddRequestParameter=customerId,9527001
+            # 删除 url 请求参数 customerName
+#            - RemoveRequestParameter=customerName
+            # 新增请求参数 X-Response-cozz 并设值为 via
+#            - AddResponseHeader=X-Response-cozz, via
+            # 设置回应头 Date 值为 2099-11-11
+#            - SetResponseHeader=Date,2099-11-11
+            # 将默认自带 Content-Type 回应属性删除
+#            - RemoveResponseHeader=Content-Type

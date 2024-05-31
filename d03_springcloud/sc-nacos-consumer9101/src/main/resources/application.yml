@@ -1,0 +1,43 @@
+server:
+  port: 9101
+
+spring:
+  application:
+    name: sc-nacos-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    openfeign:
+      client:
+        config:
+          # 设置 openfeign 的全局超时时间
+          default:
+            connect-timeout: 10000
+            read-timeout: 10000
+          # 对一个服务设置超时时间
+          sc-consul-provider:
+            connect-timeout: 3000
+            read-timeout: 3000
+      httpclient:
+        hc5:
+          enabled: true
+      # 压缩配置
+      compression:
+        request:
+          enabled: true
+          # 最小触发压缩的大小
+          min-request-size: 2048
+          # 触发压缩数据类型
+          mime-types: text/xml,application/xml,application/json
+        response:
+          enabled: true
+# 配置开启 feign 日志的客户端, feign日志以什么级别监控哪个接口
+logging:
+  level:
+    com.cozz.common.api.NacosFeignApi: debug
+
+# 激活Sentinel对Feign的支持
+feign:
+  sentinel:
+    enabled: true
