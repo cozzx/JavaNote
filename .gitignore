@@ -28,6 +28,8 @@ replay_pid*
 .idea
 out/
 log/
+conf/
+
 target/
 !**/src/main/**/out/
 !**/src/test/**/out/

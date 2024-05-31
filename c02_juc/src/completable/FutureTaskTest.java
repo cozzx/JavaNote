@@ -63,7 +63,7 @@ public class FutureTaskTest {
         while (true) {
             if (futureTask.isDone()) {
                 String result = futureTask.get();
-                System.out.println("支线任务结果 result = " + result);
+                System.out.println(STR."支线任务结果 result = \{result}");
                 break;
             } else {
                 System.out.println("支线任务未完成, 正在等待结果...");

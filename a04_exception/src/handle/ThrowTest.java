@@ -6,7 +6,7 @@ import org.junit.Test;
  * 手动抛出异常
  *
  * @author zt
- * @date 2023/7/19 23:17
+ * @date 2023/7/19
  **/
 public class ThrowTest {
 
