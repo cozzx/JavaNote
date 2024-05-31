@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @author zt
  * @date 2023/9/5
  **/
-@Component
+//@Component
 public class MyNewsTopicListener {
 
     /**
@@ -21,7 +21,7 @@ public class MyNewsTopicListener {
         // 获取消息的各种详细信息
         Object key = record.key();
         Object value = record.value();
-        System.out.println(STR."收到消息：key【\{key}】 value【\{value}】");
+        System.out.println("收到消息：key【" + key + "】 value【" + value + "】");
     }
 
     /**
@@ -35,6 +35,6 @@ public class MyNewsTopicListener {
     public void allNews(ConsumerRecord record) {
         Object key = record.key();
         Object value = record.value();
-        System.out.println(STR."全部消息：key【\{key}】 value【\{value}】");
+        System.out.println("收到消息：key【" + key + "】 value【" + value + "】");
     }
 }

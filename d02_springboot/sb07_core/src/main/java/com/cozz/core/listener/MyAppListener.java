@@ -1,6 +1,5 @@
 package com.cozz.core.listener;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ConfigurableBootstrapContext;
 import org.springframework.boot.SpringApplicationRunListener;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -25,7 +24,6 @@ import java.time.Duration;
  * @author zt
  * @date 2023/8/31
  **/
-@Slf4j
 public class MyAppListener implements SpringApplicationRunListener {
 
     /**
@@ -43,7 +41,7 @@ public class MyAppListener implements SpringApplicationRunListener {
     @Override
     public void environmentPrepared(ConfigurableBootstrapContext bootstrapContext, ConfigurableEnvironment environment) {
         SpringApplicationRunListener.super.environmentPrepared(bootstrapContext, environment);
-        log.info("=====environmentPrepared=====环境准备完成======");
+        System.out.println("=====environmentPrepared=====环境准备完成======");
     }
 
     /**
@@ -52,7 +50,7 @@ public class MyAppListener implements SpringApplicationRunListener {
     @Override
     public void contextPrepared(ConfigurableApplicationContext context) {
         SpringApplicationRunListener.super.contextPrepared(context);
-        log.info("=====contextPrepared=====ioc容器准备完成======");
+        System.out.println("=====contextPrepared=====ioc容器准备完成======");
     }
 
     /**
@@ -61,7 +59,7 @@ public class MyAppListener implements SpringApplicationRunListener {
     @Override
     public void contextLoaded(ConfigurableApplicationContext context) {
         SpringApplicationRunListener.super.contextLoaded(context);
-        log.info("=====contextLoaded=====ioc容器加载完成======");
+        System.out.println("=====contextLoaded=====ioc容器加载完成======");
     }
 
     /**
@@ -70,7 +68,7 @@ public class MyAppListener implements SpringApplicationRunListener {
     @Override
     public void started(ConfigurableApplicationContext context, Duration timeTaken) {
         SpringApplicationRunListener.super.started(context, timeTaken);
-        log.info("=====started=====启动完成======");
+        System.out.println("=====started=====启动完成======");
     }
 
     /**
@@ -79,12 +77,12 @@ public class MyAppListener implements SpringApplicationRunListener {
     @Override
     public void ready(ConfigurableApplicationContext context, Duration timeTaken) {
         SpringApplicationRunListener.super.ready(context, timeTaken);
-        log.info("=====ready=====准备就绪======");
+        System.out.println("=====ready=====准备就绪======");
     }
 
     @Override
     public void failed(ConfigurableApplicationContext context, Throwable exception) {
         SpringApplicationRunListener.super.failed(context, exception);
-        log.info("=====failed=====应用启动失败======");
+        System.out.println("=====failed=====应用启动失败======");
     }
 }

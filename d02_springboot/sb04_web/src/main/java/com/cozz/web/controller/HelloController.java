@@ -1,14 +1,21 @@
 package com.cozz.web.controller;
 
 import com.cozz.web.bean.Person;
+import com.cozz.web.service.FileUploadClientService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Locale;
 
 /**
@@ -75,4 +82,42 @@ public class HelloController {
         Locale locale = request.getLocale();
         return messageSource.getMessage("login", null, locale);
     }
+
+    private static final String UPLOAD_DIR = "/Users/zhangtao/Desktop/";
+
+    @PostMapping("file/recv")
+    public ResponseEntity<String> recvFile(@RequestParam("file") MultipartFile file) {
+        try {
+            // 创建文件对象
+            File uploadDir = new File(UPLOAD_DIR);
+            if (!uploadDir.exists()) {
+                uploadDir.mkdir();
+            }
+
+            // 获取文件名
+            String fileName = file.getOriginalFilename();
+
+            // 构建完整的文件路径
+            Path path = Paths.get(UPLOAD_DIR + fileName);
+
+            // 将文件写入指定路径
+            Files.write(path, file.getBytes());
+
+            return new ResponseEntity<>("File uploaded successfully", HttpStatus.OK);
+        } catch (IOException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @Autowired
+    private FileUploadClientService fileUploadClientService;
+
+
+    @PostMapping("file/send")
+    public void sendFile() {
+        String filePath = "/Users/zhangtao/Downloads/exportOpcDA";
+        String serverUrl = "http://localhost:8084/file/recv";
+        fileUploadClientService.uploadFile(filePath, serverUrl);
+    }
+
 }

@@ -9,7 +9,7 @@ import org.springframework.kafka.config.TopicBuilder;
  * @author zt
  * @date 2023/9/5
  **/
-@Configuration
+//@Configuration
 public class AppKafkaConfig {
 
     @Bean

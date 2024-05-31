@@ -3,3 +3,18 @@ server:
 spring:
   kafka:
     bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  mqtt:
+    hosts:
+      - tcp://101.43.153.224:1883
+    username: tom
+    password: jerry
+    client-id: mqtt_test
+    connection-timeout: 10
+    completion-timeout: 2000
+    keep-alive: 2000
+    default-topic: topic_default,topic_test
+    qos: 2
+    will-data: I'm Done
